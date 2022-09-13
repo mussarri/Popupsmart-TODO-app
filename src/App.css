@@ -1,0 +1,189 @@
+:root {
+  --font-color: rgb(30, 30, 30);
+  --background-color: rgb(234, 234, 234);
+  --odd-color: rgb(227, 227, 227);
+  --even-color: rgb(237, 237, 237);
+  --hover-color: rgb(195, 195, 195);
+}
+
+[data-theme = "dark"] {
+  --font-color: rgb(220, 220, 220);
+  --background-color: rgb(21, 21, 21);
+  --odd-color: rgb(44, 44, 44);
+  --even-color: rgba(44, 44, 44, 0.502);
+  --hover-color: rgb(59, 58, 58);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body{  
+  background-color: var(--background-color);
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 38px 12px 40px;
+  background: var(--even-color);
+  font-size: 18px;
+  transition: 0.2s;
+  color: var(--font-color);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ul li:nth-child(odd) {
+  background: var(--odd-color);
+}
+
+ul li:hover {
+  background: var(--hover-color);
+}
+
+ul li.checked {
+  background: var(--hover-color);
+  color: var(--font-color);
+  text-decoration: line-through;
+}
+
+/* checked mark */
+ul li.checked::before {
+  content: "";
+  position: absolute;
+  border-color: var(--font-color);
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top:15px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+.App {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background-color);
+  margin: 0 auto;
+}
+
+
+/* delete button */
+#myUL li .delete {
+  float: right;
+  margin-right: 10px;
+  background: red;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+}
+
+/* edit button */
+#myUL li .edit {
+  content: "\00270E";
+  float: right;
+  margin-right: 10px;
+  background: rgb(255, 217, 0);
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.header {
+  background-color: var(--background-color);
+  padding: 30px 40px;
+  color: var(--font-color);
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.header h2{
+  margin: 0 0 30px 0;
+}
+.header h5{
+  position: fixed;
+  top: 10px;
+  right: 20px ;
+}
+
+input {
+  margin: 20px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid rgb(111, 110, 110);
+  background: var(--background-color);
+  color: var(--font-color);
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+  outline: none;
+}
+
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: var(--background-color);
+  color: var(--font-color);
+  border: 1px solid rgb(111, 110, 110);
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0 5px 5px 0;
+}
+
+.addBtn:hover {
+  background-color: var(--hover-color);
+}
+
+/*loading */
+.loader {
+  border: 16px solid var(--hover-color); 
+  border-top: 16px solid var(--font-color); 
+  border-radius: 50%;
+  margin: 20px auto;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.theme{
+  border-radius: 5px;
+  border: none;
+  background: rgb(183, 180, 180);
+  padding: 5px 20px;
+  margin: 5px;
+}
+
+.theme:hover{
+  filter: brightness(110%);
+}
